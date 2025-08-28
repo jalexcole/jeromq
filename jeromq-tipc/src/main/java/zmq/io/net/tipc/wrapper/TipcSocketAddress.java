@@ -4,7 +4,7 @@ import java.lang.foreign.MemorySegment;
 import java.net.SocketAddress;
 
 public class TipcSocketAddress extends SocketAddress {
-    private MemorySegment ptr;
+    private final MemorySegment ptr;
 
     public TipcSocketAddress(MemorySegment ptr) {
         this.ptr = ptr;
@@ -15,11 +15,10 @@ public class TipcSocketAddress extends SocketAddress {
     }
 
     public int ref() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        return tipc_socket_address.ref(this.ptr);
     }
 
     public int node() {
-        throw new UnsupportedOperationException("Not implemented yet");
-        
+        return tipc_socket_address.node(this.ptr);
     }
 }

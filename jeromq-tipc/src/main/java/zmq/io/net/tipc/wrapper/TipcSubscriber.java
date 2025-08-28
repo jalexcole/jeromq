@@ -12,13 +12,12 @@ public class TipcSubscriber {
     public void usrHandle(String handle) {
         throw new UnsupportedOperationException("User handle not supported");
     }
-    
 
     public TipcServiceRange seq() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        return new TipcServiceRange(tipc_subscr.seq(this.ptr));
     }
 
     public void seq(TipcServiceRange seq) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        tipc_subscr.seq(this.ptr, seq.ptr());
     }
 }

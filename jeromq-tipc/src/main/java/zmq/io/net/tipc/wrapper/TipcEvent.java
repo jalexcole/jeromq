@@ -6,31 +6,31 @@ public class TipcEvent {
     private MemorySegment memorySegment;    
 
     public int event() {
-        throw new UnsupportedOperationException("Not implemented yet");
+return tipc_event.event(this.memorySegment);
     }
 
     public void event(int event) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        tipc_event.event(this.memorySegment, event);
     }
 
     public int foundLower() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        return tipc_event.found_lower(this.memorySegment);
     }
 
     public void foundLower(int foundLower) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        tipc_event.found_lower(this.memorySegment, foundLower);
     }
 
     public int foundUpper() {
-        throw new UnsupportedOperationException("Not implemented yet");
+        return tipc_event.found_upper(this.memorySegment);
     }
 
     public void foundUpper(int foundUpper) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        tipc_event.found_upper(this.memorySegment, foundUpper);
     }
 
     public TipcSoketAddress port() {
-        throw new UnsupportedOperationException();
+        return new TipcSocketAddress(tipc_event.port(this.memorySegment));
     }
 
     public void port(TipcSocketAddress port) {
@@ -38,7 +38,7 @@ public class TipcEvent {
     }
 
     public TipcSubscriber s() {
-        throw new UnsupportedOperationException();
+        return new TipcSubscriber(tipc_event.s(this.memorySegment));
     }
 
     public void s(TipcSubscriber s) {
